@@ -32,7 +32,7 @@ describe('SignUpController', () => {
       body: {
         email: 'any_email@mail.com',
         password: 'any_password',
-        passwordConfirm: 'any_password'
+        passwordConfirmation: 'any_password'
       }
     }
 
@@ -48,7 +48,7 @@ describe('SignUpController', () => {
       body: {
         name: 'any_name',
         password: 'any_password',
-        passwordConfirm: 'any_password'
+        passwordConfirmation: 'any_password'
       }
     }
 
@@ -64,7 +64,7 @@ describe('SignUpController', () => {
       body: {
         name: 'any_name',
         email: 'any_email@mail.com',
-        passwordConfirm: 'any_password'
+        passwordConfirmation: 'any_password'
       }
     }
 
@@ -86,7 +86,7 @@ describe('SignUpController', () => {
 
     const httpResponse = sut.handle(httpRequest)
     expect(httpResponse.statusCode).toBe(400)
-    expect(httpResponse.body).toEqual(new MissingParamError('passwordConfirm'))
+    expect(httpResponse.body).toEqual(new MissingParamError('passwordConfirmation'))
   })
 
   it('Should return 400 if an invalid email is provided', () => {
@@ -99,7 +99,7 @@ describe('SignUpController', () => {
         name: 'any_name',
         email: 'invalid_maill@mail.com',
         password: 'any_password',
-        passwordConfirm: 'any_password'
+        passwordConfirmation: 'any_password'
       }
     }
 
@@ -118,7 +118,7 @@ describe('SignUpController', () => {
         name: 'any_name',
         email: 'any_mail@mail.com',
         password: 'any_password',
-        passwordConfirm: 'any_password'
+        passwordConfirmation: 'any_password'
       }
     }
 
@@ -138,7 +138,7 @@ describe('SignUpController', () => {
         name: 'any_name',
         email: 'invalid_maill@mail.com',
         password: 'any_password',
-        passwordConfirm: 'any_password'
+        passwordConfirmation: 'any_password'
       }
     }
 
