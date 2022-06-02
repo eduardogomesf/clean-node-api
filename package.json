@@ -43,9 +43,10 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "express": "^4.17.1",
+    "fast-glob": "^3.2.11",
     "mongodb": "^4.1.1",
-    "validator": "^13.6.0",
-    "fast-glob": "^3.2.11"
+    "sucrase": "^3.21.0",
+    "validator": "^13.6.0"
   },
   "engines": {
     "node": "16.x"
