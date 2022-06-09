@@ -1,11 +1,12 @@
-import { AuthenticationModel } from '../../../domain/use-cases/authentication'
-import { HashComparer } from '../../protocols/cryptography/hash-comparer'
-import { TokenGenerator } from '../../protocols/cryptography/token-generator'
-import { LoadAccountByEmailRepository } from '../../protocols/db/mongo/load-account-by-email-repository'
-import { UpdateAccessTokenRepository } from '../../protocols/db/mongo/update-access-token-repository'
-import { AccountModel } from '../add-account/db-add-account-protocols'
 import { DbAuthentication } from './db-authentication'
-
+import {
+  AuthenticationModel,
+  HashComparer,
+  TokenGenerator,
+  LoadAccountByEmailRepository,
+  UpdateAccessTokenRepository,
+  AccountModel
+} from './db-authentication-protocols'
 interface SutTypes {
   loadAccountByEmailRepositoryStub: LoadAccountByEmailRepository
   sut: DbAuthentication

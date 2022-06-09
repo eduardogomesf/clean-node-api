@@ -1,8 +1,11 @@
-import { Authentication, AuthenticationModel } from '../../../domain/use-cases/authentication'
-import { HashComparer } from '../../protocols/cryptography/hash-comparer'
-import { TokenGenerator } from '../../protocols/cryptography/token-generator'
-import { LoadAccountByEmailRepository } from '../../protocols/db/mongo/load-account-by-email-repository'
-import { UpdateAccessTokenRepository } from '../../protocols/db/mongo/update-access-token-repository'
+import {
+  AuthenticationModel,
+  HashComparer,
+  TokenGenerator,
+  LoadAccountByEmailRepository,
+  UpdateAccessTokenRepository,
+  Authentication
+} from './db-authentication-protocols'
 
 export class DbAuthentication implements Authentication {
   private readonly loadAccountByEmailRepository: LoadAccountByEmailRepository
