@@ -5,7 +5,6 @@ O objetivo do treinamento é mostrar como criar uma API com uma arquitetura bem 
 
 [Link do curso](https://www.udemy.com/course/tdd-com-mango/?referralCode=B53CE5CA2B9AFA5A6FA1)
 
-<br /><br />
 > ## Features disponibilizadas pela API
 
 1. [Cadastro](./requirements/signup.md)
