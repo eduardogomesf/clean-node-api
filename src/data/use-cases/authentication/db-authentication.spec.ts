@@ -60,7 +60,7 @@ const makeEncrypterStub = (): Encrypter => {
 const makeUpdateAccessTokenRepositorySutb = (): UpdateAccessTokenRepository => {
   class UpdateAccessTokenRepositoryStub implements UpdateAccessTokenRepository {
     async updateAccessToken (id: string, token: string): Promise<void> {
-      return new Promise(resolve => resolve(null))
+      return new Promise(resolve => resolve(null as any))
     }
   }
 
@@ -94,7 +94,7 @@ describe('DbAuthentication UseCase', () => {
 
   it('Should return if LoadAccountByEmailRepository returns null', async () => {
     const { sut, loadAccountByEmailRepositoryStub } = makeSut()
-    jest.spyOn(loadAccountByEmailRepositoryStub, 'loadByEmail').mockReturnValueOnce(null)
+    jest.spyOn(loadAccountByEmailRepositoryStub, 'loadByEmail').mockReturnValueOnce(null as any)
     const accessToken = await sut.auth(makeFakeAuthentication())
     expect(accessToken).toBeNull()
   })
