@@ -7,7 +7,7 @@ import {
   UpdateAccessTokenRepository,
   AccountModel
 } from './db-authentication-protocols'
-interface SutTypes {
+type SutTypes = {
   loadAccountByEmailRepositoryStub: LoadAccountByEmailRepository
   sut: DbAuthentication
   hashComparerStub: HashComparer
