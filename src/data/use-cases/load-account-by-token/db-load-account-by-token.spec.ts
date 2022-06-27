@@ -1,7 +1,5 @@
-import { Decrypter } from '../../protocols/cryptography/decrypter'
-import { AccountModel } from '../add-account/db-add-account-protocols'
 import { DbLoadAccountByToken } from './db-load-account-by-token'
-import { LoadAccountByTokenRepository } from '../../protocols/db/mongo/account/load-account-by-token-repository'
+import { LoadAccountByTokenRepository, AccountModel, Decrypter } from './db-load-account-by-token-protocols'
 
 interface SutTypes {
   sut: DbLoadAccountByToken

@@ -1,6 +1,5 @@
-import { LoadAccountByEmailRepository } from '../authentication/db-authentication-protocols'
 import { DbAddAccount } from './db-add-account'
-import { AccountModel, Hasher, AddAccountRepository, AddAccount, AddAccountModel } from './db-add-account-protocols'
+import { AccountModel, Hasher, AddAccountRepository, AddAccount, AddAccountModel, LoadAccountByEmailRepository } from './db-add-account-protocols'
 
 interface SutTypes {
   sut: AddAccount
