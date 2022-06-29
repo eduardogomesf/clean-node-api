@@ -1,7 +1,6 @@
 import MockDate from 'mockdate'
 import { DbLoadSurveyById } from './db-load-survey-by-id'
-import { SurveyModel } from '@/domain/models/survey'
-import { LoadSurveyByIdRepository } from '@/data/protocols/db/mongo/survey/load-survey-by-id-repository'
+import { SurveyModel, LoadSurveyByIdRepository } from './db-load-survey-by-id-protocols'
 
 type SutTypes = {
   sut: DbLoadSurveyById
