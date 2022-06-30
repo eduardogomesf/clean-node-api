@@ -1,9 +1,9 @@
 import { ObjectId } from 'mongodb'
 import { SurveyModel } from '@/domain/models/survey'
-import { AddSurveyModel } from '@/domain/use-cases/add-survey'
+import { AddSurveyModel } from '@/domain/use-cases/survey/add-survey'
 import { AddSurveyRepository } from '@/data/protocols/db/mongo/survey/add-survey-repository'
-import { LoadSurveysRepository } from '@/data/use-cases/load-surveys/db-load-surveys-protocols'
-import { LoadSurveyByIdRepository } from '@/data/use-cases/load-survey-by-id/db-load-survey-by-id-protocols'
+import { LoadSurveysRepository } from '@/data/use-cases/survey/load-surveys/db-load-surveys-protocols'
+import { LoadSurveyByIdRepository } from '@/data/use-cases/survey/load-survey-by-id/db-load-survey-by-id-protocols'
 import { MongoHelper } from '@/infra/db/mongodb/helpers/mongo-helper'
 
 export class SurveyMongoRepository implements AddSurveyRepository, LoadSurveysRepository, LoadSurveyByIdRepository {
