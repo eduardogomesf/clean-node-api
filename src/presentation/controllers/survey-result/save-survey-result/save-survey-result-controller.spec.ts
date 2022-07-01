@@ -3,6 +3,7 @@ import { InvalidParamError } from '@/presentation/errors'
 import { forbidden, ok } from '@/presentation/helpers/http/http-helper'
 import { SaveSurveyResultController } from './save-survey-result-controller'
 import { HttpRequest, LoadSurveyById, SaveSurveyResult, SurveyModel, SaveSurveyResultParams, SurveyResultModel } from './save-survey-result-controller-protocols'
+import { mockSurveyModel, throwError } from '@/domain/test'
 
 const makeFakeRequest = (): HttpRequest => ({
   params: {
@@ -12,13 +13,6 @@ const makeFakeRequest = (): HttpRequest => ({
     answer: 'any_answer'
   },
   accountId: 'any_account_id'
-})
-
-const makeFakeSurvey = (): SurveyModel => ({
-  id: 'any_id',
-  question: 'any_question',
-  answers: [{ image: 'any_image', answer: 'any_answer' }],
-  date: new Date()
 })
 
 export const makeFakeSurveyResult = (): SurveyResultModel => ({
@@ -32,7 +26,7 @@ export const makeFakeSurveyResult = (): SurveyResultModel => ({
 const makeLoadSurveyById = (): LoadSurveyById => {
   class LoadSurveyByIdStub implements LoadSurveyById {
     async loadById (id: string): Promise<SurveyModel> {
-      return new Promise((resolve) => resolve(makeFakeSurvey()))
+      return new Promise((resolve) => resolve(mockSurveyModel()))
     }
   }
 
@@ -88,7 +82,7 @@ describe('SaveSurveyResult Controller', () => {
 
   it('Should return 500 if LoadSurveyById throws', async () => {
     const { sut, loadSurveyByIdStub } = makeSut()
-    jest.spyOn(loadSurveyByIdStub, 'loadById').mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())))
+    jest.spyOn(loadSurveyByIdStub, 'loadById').mockImplementationOnce(throwError)
     const httpResponse = await sut.handle(makeFakeRequest())
     expect(httpResponse.statusCode).toBe(500)
   })
@@ -120,7 +114,7 @@ describe('SaveSurveyResult Controller', () => {
 
   it('Should return 500 if SaveSurveyResult throws', async () => {
     const { sut, saveSurveyResultStub } = makeSut()
-    jest.spyOn(saveSurveyResultStub, 'save').mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())))
+    jest.spyOn(saveSurveyResultStub, 'save').mockImplementationOnce(throwError)
     const httpResponse = await sut.handle(makeFakeRequest())
     expect(httpResponse.statusCode).toBe(500)
   })
