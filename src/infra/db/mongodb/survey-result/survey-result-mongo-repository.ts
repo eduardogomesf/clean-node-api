@@ -21,7 +21,6 @@ export class SurveyResultMongoRepository implements SaveSurveyResultRepository, 
     })
 
     const surveyResult = await this.loadBySurveyId(data.surveyId, data.accountId)
-    console.log(surveyResult)
     return surveyResult
   }
 
