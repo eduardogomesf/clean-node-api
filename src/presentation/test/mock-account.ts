@@ -1,4 +1,5 @@
 import { AccountModel } from '@/domain/models/account'
+import { AuthenticationModel } from '@/domain/models/authentication'
 import { mockAccountModel } from '@/domain/test'
 import { AddAccount, AddAccountParams } from '@/domain/use-cases/account/add-account'
 import { Authentication, AuthenticationParams } from '@/domain/use-cases/account/authentication'
@@ -11,8 +12,8 @@ export class AddAccountSpy implements AddAccount {
 }
 
 export class AuthenticationSpy implements Authentication {
-  async auth (credentials: AuthenticationParams): Promise<string> {
-    return Promise.resolve('any_token')
+  async auth (credentials: AuthenticationParams): Promise<AuthenticationModel> {
+    return Promise.resolve({ accessToken: 'any_token', name: 'any_name' })
   }
 }
 
