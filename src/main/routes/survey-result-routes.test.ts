@@ -70,10 +70,23 @@ describe('Survey Result routes', () => {
     test('Should return 403 on load survey result without access token', async () => {
       await request(app)
         .get('/api/surveys/any_id/results')
-        .send({
-          answer: 'any_answer'
-        })
         .expect(403)
     })
+  })
+
+  test('Should return 200 on load survey result with a valid access token', async () => {
+    const { insertedId } = await surveyCollection.insertOne({
+      question: 'any_question',
+      answers: [{
+        image: 'any_image',
+        answer: 'any_answer'
+      }],
+      date: new Date()
+    })
+    const accessToken = await makeAccessToken()
+    await request(app)
+      .get(`/api/surveys/${String(insertedId)}/results`)
+      .set('x-access-token', accessToken)
+      .expect(200)
   })
 })
