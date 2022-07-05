@@ -3,18 +3,18 @@ import { LoadSurveysController } from './load-surveys-controller'
 import { LoadSurveys } from './load-surveys-controller-protocols'
 import { noContent, ok, serverError } from '@/presentation/helpers/http/http-helper'
 import { mockSurveyModels, throwError } from '@/domain/test'
-import { mockLoadSurveys } from '@/presentation/test'
+import { LoadSurveysSpy } from '@/presentation/test'
 
 type SutTypes = {
   sut: LoadSurveysController
-  loadSurveysStub: LoadSurveys
+  loadSurveysSpy: LoadSurveys
 }
 
 const makeSut = (): SutTypes => {
-  const loadSurveysStub = mockLoadSurveys()
-  const sut = new LoadSurveysController(loadSurveysStub)
+  const loadSurveysSpy = new LoadSurveysSpy()
+  const sut = new LoadSurveysController(loadSurveysSpy)
 
-  return { sut, loadSurveysStub }
+  return { sut, loadSurveysSpy }
 }
 
 describe('LoadSurveys Controller', () => {
@@ -27,8 +27,8 @@ describe('LoadSurveys Controller', () => {
   })
 
   it('Should call LoadSurveys', async () => {
-    const { sut, loadSurveysStub } = makeSut()
-    const loadSpy = jest.spyOn(loadSurveysStub, 'load')
+    const { sut, loadSurveysSpy } = makeSut()
+    const loadSpy = jest.spyOn(loadSurveysSpy, 'load')
     await sut.handle({})
     expect(loadSpy).toHaveBeenCalled()
   })
@@ -40,15 +40,15 @@ describe('LoadSurveys Controller', () => {
   })
 
   it('Should return 204 if LoadSurveys returns empty', async () => {
-    const { sut, loadSurveysStub } = makeSut()
-    jest.spyOn(loadSurveysStub, 'load').mockReturnValueOnce(Promise.resolve([]))
+    const { sut, loadSurveysSpy } = makeSut()
+    jest.spyOn(loadSurveysSpy, 'load').mockReturnValueOnce(Promise.resolve([]))
     const httpResponse = await sut.handle({})
     expect(httpResponse).toEqual(noContent())
   })
 
   it('Should throw if LoadSurveys throws', async () => {
-    const { sut, loadSurveysStub } = makeSut()
-    jest.spyOn(loadSurveysStub, 'load').mockImplementationOnce(throwError)
+    const { sut, loadSurveysSpy } = makeSut()
+    jest.spyOn(loadSurveysSpy, 'load').mockImplementationOnce(throwError)
     const httpResponse = await sut.handle({})
     expect(httpResponse).toEqual(serverError(new Error()))
   })

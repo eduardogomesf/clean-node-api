@@ -4,31 +4,20 @@ import { AddSurvey, AddSurveyParams } from '@/domain/use-cases/survey/add-survey
 import { LoadSurveyById } from '@/domain/use-cases/survey/load-survey-by-id'
 import { LoadSurveys } from '@/domain/use-cases/survey/load-surveys'
 
-export const mockAddSurvey = (): AddSurvey => {
-  class AddSurveyStub implements AddSurvey {
-    async add (data: AddSurveyParams): Promise<void> {
-      return Promise.resolve()
-    }
+export class AddSurveySpy implements AddSurvey {
+  async add (data: AddSurveyParams): Promise<void> {
+    return Promise.resolve()
   }
-
-  return new AddSurveyStub()
 }
 
-export const mockLoadSurveyById = (): LoadSurveyById => {
-  class LoadSurveyByIdStub implements LoadSurveyById {
-    async loadById (id: string): Promise<SurveyModel> {
-      return Promise.resolve(mockSurveyModel())
-    }
+export class LoadSurveyByIdSpy implements LoadSurveyById {
+  async loadById (id: string): Promise<SurveyModel> {
+    return Promise.resolve(mockSurveyModel())
   }
-
-  return new LoadSurveyByIdStub()
 }
 
-export const mockLoadSurveys = (): LoadSurveys => {
-  class LoadSurveysStub implements LoadSurveys {
-    async load (): Promise<SurveyModel[]> {
-      return Promise.resolve(mockSurveyModels())
-    }
+export class LoadSurveysSpy implements LoadSurveys {
+  async load (): Promise<SurveyModel[]> {
+    return Promise.resolve(mockSurveyModels())
   }
-  return new LoadSurveysStub()
 }

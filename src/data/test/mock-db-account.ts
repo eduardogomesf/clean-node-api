@@ -5,41 +5,26 @@ import { AddAccountRepository, LoadAccountByEmailRepository } from '@/data/use-c
 import { LoadAccountByTokenRepository } from '@/data/use-cases/account/load-account-by-token/db-load-account-by-token-protocols'
 import { UpdateAccessTokenRepository } from '@/data/use-cases/account/authentication/db-authentication-protocols'
 
-export const mockAddAccountRepository = (): AddAccountRepository => {
-  class AddAccountRepositoryStub implements AddAccountRepository {
-    async add (account: AddAccountParams): Promise<AccountModel> {
-      return Promise.resolve(mockAccountModel())
-    }
+export class AddAccountRepositorySpy implements AddAccountRepository {
+  async add (account: AddAccountParams): Promise<AccountModel> {
+    return Promise.resolve(mockAccountModel())
   }
-
-  return new AddAccountRepositoryStub()
 }
 
-export const mockLoadAccountByEmailRepository = (): LoadAccountByEmailRepository => {
-  class LoadAccountByEmailRepositoryStub implements LoadAccountByEmailRepository {
-    async loadByEmail (email: string): Promise<AccountModel> {
-      return Promise.resolve(mockAccountModel())
-    }
+export class LoadAccountByEmailRepositorySpy implements LoadAccountByEmailRepository {
+  async loadByEmail (email: string): Promise<AccountModel> {
+    return Promise.resolve(mockAccountModel())
   }
-
-  return new LoadAccountByEmailRepositoryStub()
 }
 
-export const mockLoadAccountByTokenRepository = (): LoadAccountByTokenRepository => {
-  class LoadAccountByTokenRepositoryStub implements LoadAccountByTokenRepository {
-    loadByToken (token: string, role?: string): Promise<AccountModel> {
-      return Promise.resolve(mockAccountModel())
-    }
+export class LoadAccountByTokenRepositorySpy implements LoadAccountByTokenRepository {
+  loadByToken (token: string, role?: string): Promise<AccountModel> {
+    return Promise.resolve(mockAccountModel())
   }
-  return new LoadAccountByTokenRepositoryStub()
 }
 
-export const mockUpdateAccessTokenRepositorySutb = (): UpdateAccessTokenRepository => {
-  class UpdateAccessTokenRepositoryStub implements UpdateAccessTokenRepository {
-    async updateAccessToken (id: string, token: string): Promise<void> {
-      return Promise.resolve(null)
-    }
+export class UpdateAccessTokenRepositorySpy implements UpdateAccessTokenRepository {
+  async updateAccessToken (id: string, token: string): Promise<void> {
+    return Promise.resolve(null)
   }
-
-  return new UpdateAccessTokenRepositoryStub()
 }

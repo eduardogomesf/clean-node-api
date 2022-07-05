@@ -1,24 +1,24 @@
 import { EmailValidation } from './email-validation'
 import { InvalidParamError } from '@/presentation/errors'
 import { EmailValidator } from '@/validation/protocols/email-validator'
-import { mockEmailValidator } from '@/validation/test'
+import { EmailValidatorSpy } from '@/validation/test'
 
 type SutTypes = {
   sut: EmailValidation
-  emailValidatorStub: EmailValidator
+  emailValidatorSpy: EmailValidator
 }
 
 const makeSut = (): SutTypes => {
-  const emailValidatorStub = mockEmailValidator()
-  const sut = new EmailValidation('email', emailValidatorStub)
-  return { sut, emailValidatorStub }
+  const emailValidatorSpy = new EmailValidatorSpy()
+  const sut = new EmailValidation('email', emailValidatorSpy)
+  return { sut, emailValidatorSpy }
 }
 
 describe('Email Validation', () => {
   it('Should returns an error if EmailValidator returns false', async () => {
-    const { sut, emailValidatorStub } = makeSut()
+    const { sut, emailValidatorSpy } = makeSut()
 
-    jest.spyOn(emailValidatorStub, 'isValid').mockReturnValueOnce(false)
+    jest.spyOn(emailValidatorSpy, 'isValid').mockReturnValueOnce(false)
 
     const error = sut.validate({ email: 'any_mail@mail.com' })
 
@@ -26,9 +26,9 @@ describe('Email Validation', () => {
   })
 
   it('Should call EmailValidator.isValid with correct email', () => {
-    const { sut, emailValidatorStub } = makeSut()
+    const { sut, emailValidatorSpy } = makeSut()
 
-    const isValidSpy = jest.spyOn(emailValidatorStub, 'isValid')
+    const isValidSpy = jest.spyOn(emailValidatorSpy, 'isValid')
 
     sut.validate({ email: 'any_mail@mail.com' })
 
@@ -36,9 +36,9 @@ describe('Email Validation', () => {
   })
 
   it('Should throw if EmailValidator.isValid throws', () => {
-    const { sut, emailValidatorStub } = makeSut()
+    const { sut, emailValidatorSpy } = makeSut()
 
-    jest.spyOn(emailValidatorStub, 'isValid').mockImplementation(() => {
+    jest.spyOn(emailValidatorSpy, 'isValid').mockImplementation(() => {
       throw new Error()
     })
 
