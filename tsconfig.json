@@ -5,11 +5,15 @@
     "target": "es2019",
     "esModuleInterop": true,
     "sourceMap": true,
-    "rootDir": "src",
-    "skipLibCheck": true,
+    "rootDirs": [
+      "src",
+      "tests"
+    ],
     "baseUrl": "src",
-    "allowJs": true,
     "paths": {
+      "@/tests/*": [
+        "../tests/*"
+      ],
       "@/*": [
         "*"
       ]
@@ -17,5 +21,7 @@
   },
   "include": [
     "src",
+    "tests"
   ],
+  "exclude": []
 }
