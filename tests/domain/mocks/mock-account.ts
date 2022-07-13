@@ -1,5 +1,5 @@
 import { AccountModel } from '@/domain/models/account'
-import { AddAccountParams } from '@/domain/use-cases/account/add-account'
+import { AddAccount } from '@/domain/use-cases/account/add-account'
 import { AuthenticationParams } from '@/domain/use-cases/account/authentication'
 
 export const mockAccountModel = (): AccountModel => ({
@@ -9,7 +9,7 @@ export const mockAccountModel = (): AccountModel => ({
   password: 'hashed_value'
 })
 
-export const makeAddAccountParams = (): AddAccountParams => ({
+export const makeAddAccountParams = (): AddAccount.Params => ({
   name: 'any_name',
   email: 'any_email@mail.com',
   password: 'any_password'

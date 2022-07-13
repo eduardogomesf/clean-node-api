@@ -1,13 +1,13 @@
 import { AccountModel } from '@/domain/models/account'
 import { AuthenticationModel } from '@/domain/models/authentication'
 import { mockAccountModel } from '@/tests/domain/mocks'
-import { AddAccount, AddAccountParams } from '@/domain/use-cases/account/add-account'
+import { AddAccount } from '@/domain/use-cases/account/add-account'
 import { Authentication, AuthenticationParams } from '@/domain/use-cases/account/authentication'
 import { LoadAccountByToken } from '@/presentation/middlewares/auth-middleware-protocols'
 
 export class AddAccountSpy implements AddAccount {
-  async add (account: AddAccountParams): Promise<AccountModel> {
-    return Promise.resolve(mockAccountModel())
+  async add (account: AddAccount.Params): Promise<AddAccount.Result> {
+    return Promise.resolve(true)
   }
 }
 
