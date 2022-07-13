@@ -3,7 +3,7 @@ import { Authentication } from '@/domain/use-cases/account/authentication'
 import { SignUpController } from '@/presentation/controllers/login/signup/signup-controller'
 import { EmailInUseError, MissingParamError, ServerError } from '@/presentation/errors'
 import { badRequest, forbidden, ok, serverError } from '@/presentation/helpers/http/http-helper'
-import { Validation, HttpRequest } from '@/presentation/protocols'
+import { Validation } from '@/presentation/protocols'
 import { throwError } from '@/tests/domain/mocks'
 import { AddAccountSpy, AuthenticationSpy } from '@/tests/presentation/mocks'
 import { ValidationSpy } from '@/tests/validation/mocks'
@@ -15,13 +15,11 @@ type SutTypes = {
   authenticationSpy: Authentication
 }
 
-const mockRequest = (): HttpRequest => ({
-  body: {
-    name: 'any_name',
-    email: 'any_mail@mail.com',
-    password: 'any_password',
-    passwordConfirmation: 'any_password'
-  }
+const mockRequest = (): SignUpController.Request => ({
+  name: 'any_name',
+  email: 'any_mail@mail.com',
+  password: 'any_password',
+  passwordConfirmation: 'any_password'
 })
 
 const makeSut = (): SutTypes => {
@@ -77,11 +75,11 @@ describe('SignUpController', () => {
 
     const validateSpy = jest.spyOn(validationSpy, 'validate')
 
-    const httpRequest = mockRequest()
+    const request = mockRequest()
 
     await sut.handle(mockRequest())
 
-    expect(validateSpy).toHaveBeenCalledWith(httpRequest.body)
+    expect(validateSpy).toHaveBeenCalledWith(request)
   })
 
   it('Should return 400 if Validation returns an error', async () => {

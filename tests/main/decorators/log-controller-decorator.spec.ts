@@ -1,5 +1,5 @@
 import { LogErrorRepository } from '@/data/protocols/db/mongo/log/log-error-repository'
-import { Controller, HttpRequest, HttpResponse } from '@/presentation/protocols'
+import { Controller, HttpResponse } from '@/presentation/protocols'
 import { ok, serverError } from '@/presentation/helpers/http/http-helper'
 import { LogControllerDecorator } from '@/main/decorators/log-controller-decorator'
 import { LogErrorRepositorySpy } from '@/tests/data/mocks'
@@ -11,7 +11,7 @@ type SutTypes = {
 }
 
 class ControllerSpy implements Controller {
-  async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
+  async handle (httpRequest: any): Promise<HttpResponse> {
     const httpResponse: HttpResponse = {
       body: {
         name: 'any_value'
@@ -22,13 +22,8 @@ class ControllerSpy implements Controller {
   }
 }
 
-const mockRequest = (): HttpRequest => ({
-  body: {
-    name: 'any_name',
-    email: 'any_mail@mail.com',
-    password: 'any_password',
-    passwordConfirmation: 'any_password'
-  }
+const mockRequest = (): any => ({
+  any_value: 'any_value'
 })
 
 const mockServerError = (): any => ({

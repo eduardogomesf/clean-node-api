@@ -18,6 +18,7 @@
   ],
   "rules": {
     "no-useless-constructor": "off",
-    "node/no-path-concat": "off"
+    "node/no-path-concat": "off",
+    "no-redeclare": "off"
   }
 }

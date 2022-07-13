@@ -3,7 +3,7 @@ import MockDate from 'mockdate'
 import { badRequest, noContent, serverError } from '@/presentation/helpers/http/http-helper'
 import { AddSurvey } from '@/domain/use-cases/survey/add-survey'
 import { AddSurveyController } from '@/presentation/controllers/survey/add-survey/add-survey-controller'
-import { Validation, HttpRequest } from '@/presentation/protocols'
+import { Validation } from '@/presentation/protocols'
 import { throwError } from '@/tests/domain/mocks'
 import { AddSurveySpy } from '@/tests/presentation/mocks'
 import { ValidationSpy } from '@/tests/validation/mocks'
@@ -14,15 +14,12 @@ type SutTypes = {
   addSurverySpy: AddSurvey
 }
 
-const mockRequest = (): HttpRequest => ({
-  body: {
-    question: 'any_question',
-    answers: [{
-      image: 'any_image',
-      answer: 'any_answer'
-    }],
-    date: new Date()
-  }
+const mockRequest = (): AddSurveyController.Request => ({
+  question: 'any_question',
+  answers: [{
+    image: 'any_image',
+    answer: 'any_answer'
+  }]
 })
 
 const makeSut = (): SutTypes => {
@@ -45,9 +42,9 @@ describe('Add Survey Controller', () => {
   it('Should call Validation with correct values', async () => {
     const { sut, validationSpy } = makeSut()
     const validateSpy = jest.spyOn(validationSpy, 'validate')
-    const httpRequest = mockRequest()
-    await sut.handle(httpRequest)
-    expect(validateSpy).toHaveBeenCalledWith(httpRequest.body)
+    const request = mockRequest()
+    await sut.handle(request)
+    expect(validateSpy).toHaveBeenCalledWith(request)
   })
 
   it('Should return 400 if Validation fails', async () => {
@@ -60,9 +57,9 @@ describe('Add Survey Controller', () => {
   it('Should call AddSurvey with correct values', async () => {
     const { sut, addSurverySpy } = makeSut()
     const addSpy = jest.spyOn(addSurverySpy, 'add')
-    const httpRequest = mockRequest()
-    await sut.handle(httpRequest)
-    expect(addSpy).toHaveBeenCalledWith(httpRequest.body)
+    const request = mockRequest()
+    await sut.handle(request)
+    expect(addSpy).toHaveBeenCalledWith({ ...request, date: new Date() })
   })
 
   it('Should return 500 if AddSurvey throws', async () => {
@@ -74,8 +71,8 @@ describe('Add Survey Controller', () => {
 
   it('Should return 204 on success', async () => {
     const { sut } = makeSut()
-    const httpRequest = mockRequest()
-    const httpResponse = await sut.handle(httpRequest)
+    const request = mockRequest()
+    const httpResponse = await sut.handle(request)
     expect(httpResponse).toEqual(noContent())
   })
 })

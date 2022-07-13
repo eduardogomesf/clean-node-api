@@ -4,18 +4,14 @@ import { LoadAccountByTokenSpy } from '@/tests/presentation/mocks'
 import { throwError } from '@/tests/domain/mocks'
 import { AuthMiddleware } from '@/presentation/middlewares/auth-middleware'
 import { LoadAccountByToken } from '@/presentation/middlewares/auth-middleware-protocols'
-import { HttpRequest } from '@/presentation/protocols'
 
 type SutTypes = {
   sut: AuthMiddleware
   loadAccountByTokenSpy: LoadAccountByToken
 }
 
-const mockRequest = (): HttpRequest => ({
-  headers: {
-    'x-access-token': 'any_token'
-
-  }
+const mockRequest = (): AuthMiddleware.Request => ({
+  accessToken: 'any_token'
 })
 
 const makeSut = (role?: string): SutTypes => {

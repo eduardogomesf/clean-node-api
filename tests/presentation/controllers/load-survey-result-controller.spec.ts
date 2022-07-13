@@ -4,14 +4,12 @@ import { InvalidParamError } from '@/presentation/errors'
 import { LoadSurveyResult } from '@/domain/use-cases/survey-result/load-survey-result'
 import { LoadSurveyById } from '@/domain/use-cases/survey/load-survey-by-id'
 import { LoadSurveyResultController } from '@/presentation/controllers/survey-result/load-survey-result/load-survey-result-controller'
-import { HttpRequest } from '@/presentation/protocols'
 import { throwError, mockSurveyResultModel } from '@/tests/domain/mocks'
 import { LoadSurveyByIdSpy, LoadSurveyResultSpy } from '@/tests/presentation/mocks'
 
-const mockRequest = (): HttpRequest => ({
-  params: {
-    surveyId: 'any_survey_id'
-  }
+const mockRequest = (): LoadSurveyResultController.Request => ({
+  surveyId: 'any_survey_id'
+
 })
 
 type SutTypes = {
