@@ -89,9 +89,6 @@ describe('Account Mongo Repository', () => {
       const account = await sut.loadByToken('any_token')
       expect(account).toBeTruthy()
       expect(account.id).toBeTruthy()
-      expect(account.name).toBe('any_name')
-      expect(account.email).toBe('any_email@mail.com')
-      expect(account.password).toBe('any_password')
     })
 
     test('Should return an account on loadByToken success with admin role', async () => {
@@ -106,9 +103,6 @@ describe('Account Mongo Repository', () => {
       const account = await sut.loadByToken('any_token', 'admin')
       expect(account).toBeTruthy()
       expect(account.id).toBeTruthy()
-      expect(account.name).toBe('any_name')
-      expect(account.email).toBe('any_email@mail.com')
-      expect(account.password).toBe('any_password')
     })
 
     test('Should return null on loadByToken success with invalid role', async () => {
@@ -135,9 +129,6 @@ describe('Account Mongo Repository', () => {
       const account = await sut.loadByToken('any_token')
       expect(account).toBeTruthy()
       expect(account.id).toBeTruthy()
-      expect(account.name).toBe('any_name')
-      expect(account.email).toBe('any_email@mail.com')
-      expect(account.password).toBe('any_password')
     })
 
     test('Should return null if loadByToken fails', async () => {

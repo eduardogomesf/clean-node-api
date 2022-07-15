@@ -17,7 +17,7 @@ export class LoadAccountByEmailRepositorySpy implements LoadAccountByEmailReposi
 }
 
 export class LoadAccountByTokenRepositorySpy implements LoadAccountByTokenRepository {
-  loadByToken (token: string, role?: string): Promise<AccountModel> {
+  loadByToken (token: string, role?: string): Promise<LoadAccountByTokenRepository.Result> {
     return Promise.resolve(mockAccountModel())
   }
 }
