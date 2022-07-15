@@ -1,5 +1,5 @@
 import { mockAccountModel } from '@/tests/domain/mocks'
-import { AddAccountRepository, LoadAccountByEmailRepository } from '@/data/use-cases/account/add-account/db-add-account-protocols'
+import { AddAccountRepository, CheckAccountByEmailRepository, LoadAccountByEmailRepository } from '@/data/use-cases/account/add-account/db-add-account-protocols'
 import { LoadAccountByTokenRepository } from '@/data/use-cases/account/load-account-by-token/db-load-account-by-token-protocols'
 import { UpdateAccessTokenRepository } from '@/data/use-cases/account/authentication/db-authentication-protocols'
 
@@ -16,6 +16,12 @@ export class LoadAccountByEmailRepositorySpy implements LoadAccountByEmailReposi
       name: 'any_name',
       password: 'hashed_value'
     })
+  }
+}
+
+export class CheckAccountByEmailRepositorySpy implements CheckAccountByEmailRepository {
+  async checkByEmail (email: string): Promise<CheckAccountByEmailRepository.Result> {
+    return Promise.resolve(false)
   }
 }
 
