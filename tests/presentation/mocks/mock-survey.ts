@@ -1,9 +1,9 @@
 import { SurveyModel } from '@/domain/models/survey'
-import { mockSurveyModel, mockSurveyModels } from '@/tests/domain/mocks'
+import { mockSurveyModels } from '@/tests/domain/mocks'
 import { AddSurvey } from '@/domain/use-cases/survey/add-survey'
-import { LoadSurveyById } from '@/domain/use-cases/survey/load-survey-by-id'
 import { LoadSurveys } from '@/domain/use-cases/survey/load-surveys'
 import { CheckSurveyById } from '@/domain/use-cases/survey/check-survey-by-id'
+import { LoadAnsweysBySurvey } from '@/domain/use-cases/survey/load-answers-by-survey'
 
 export class AddSurveySpy implements AddSurvey {
   async add (data: AddSurvey.Params): Promise<void> {
@@ -11,9 +11,9 @@ export class AddSurveySpy implements AddSurvey {
   }
 }
 
-export class LoadSurveyByIdSpy implements LoadSurveyById {
-  async loadById (id: string): Promise<LoadSurveyById.Result> {
-    return Promise.resolve(mockSurveyModel())
+export class LoadAnswersBySurveySpy implements LoadAnsweysBySurvey {
+  async loadAnswers (id: string): Promise<LoadAnsweysBySurvey.Result> {
+    return Promise.resolve(['any_answer', 'any_other_answer'])
   }
 }
 
