@@ -1,6 +1,6 @@
 import { throwError } from '@/tests/domain/mocks'
 import { DbCheckSurveyById } from '@/data/use-cases/survey/check-survey-by-id/db-load-survey-by-id'
-import { CheckSurveyByIdRepository } from '@/data/protocols/db/mongo/survey/check-survey-by-id-repository'
+import { CheckSurveyByIdRepository } from '@/data/protocols/db/survey/check-survey-by-id-repository'
 import { CheckSurveyByIdRepositorySpy } from '../mocks/mock-db-survey'
 
 type SutTypes = {

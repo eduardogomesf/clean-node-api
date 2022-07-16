@@ -1,4 +1,4 @@
-import { CheckSurveyByIdRepository } from '@/data/protocols/db/mongo/survey/check-survey-by-id-repository'
+import { CheckSurveyByIdRepository } from '@/data/protocols/db/survey/check-survey-by-id-repository'
 import { CheckSurveyById } from '@/domain/use-cases/survey/check-survey-by-id'
 
 export class DbCheckSurveyById implements CheckSurveyById {

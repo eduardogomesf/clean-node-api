@@ -2,7 +2,7 @@ import { ObjectId } from 'mongodb'
 import { SaveSurveyResultRepository, SurveyResultModel } from '@/data/use-cases/survey-result/save-survey-result/db-save-survey-result-protocols'
 import { MongoHelper, QueryBuilder } from '@/infra/db/mongodb/helpers'
 import round from 'mongo-round'
-import { LoadSurveyResultRepository } from '@/data/protocols/db/mongo/survey-result/load-survey-result-by-id.repository'
+import { LoadSurveyResultRepository } from '@/data/protocols/db/survey-result/load-survey-result-by-id.repository'
 
 export class SurveyResultMongoRepository implements SaveSurveyResultRepository, LoadSurveyResultRepository {
   async save (data: SaveSurveyResultRepository.Params): Promise<void> {
