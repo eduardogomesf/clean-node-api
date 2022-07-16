@@ -11,7 +11,7 @@ export class AddSurveySpy implements AddSurvey {
 }
 
 export class LoadSurveyByIdSpy implements LoadSurveyById {
-  async loadById (id: string): Promise<SurveyModel> {
+  async loadById (id: string): Promise<LoadSurveyById.Result> {
     return Promise.resolve(mockSurveyModel())
   }
 }
