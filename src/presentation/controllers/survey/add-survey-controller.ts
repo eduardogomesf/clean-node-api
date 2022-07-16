@@ -1,5 +1,5 @@
 import { AddSurvey } from '@/domain/use-cases'
-import { badRequest, noContent, serverError } from '@/presentation/helpers/http-helper'
+import { badRequest, noContent, serverError } from '@/presentation/helpers'
 import { Controller, Validation, HttpResponse } from '@/presentation/protocols'
 
 export class AddSurveyController implements Controller {

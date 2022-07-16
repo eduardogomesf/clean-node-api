@@ -1,5 +1,5 @@
 import MockDate from 'mockdate'
-import { forbidden, ok, serverError } from '@/presentation/helpers/http-helper'
+import { forbidden, ok, serverError } from '@/presentation/helpers'
 import { InvalidParamError } from '@/presentation/errors'
 import { LoadSurveyResult, CheckSurveyById } from '@/domain/use-cases'
 import { LoadSurveyResultController } from '@/presentation/controllers'

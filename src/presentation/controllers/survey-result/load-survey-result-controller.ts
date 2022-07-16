@@ -1,6 +1,6 @@
 import { CheckSurveyById, LoadSurveyResult } from '@/domain/use-cases'
 import { InvalidParamError } from '@/presentation/errors'
-import { forbidden, ok, serverError } from '@/presentation/helpers/http-helper'
+import { forbidden, ok, serverError } from '@/presentation/helpers'
 import { Controller, HttpResponse } from '@/presentation/protocols'
 
 export class LoadSurveyResultController implements Controller {
