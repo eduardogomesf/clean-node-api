@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb'
 import round from 'mongo-round'
-import { MongoHelper, QueryBuilder } from '@/infra/db/mongodb/helpers'
+import { MongoHelper, QueryBuilder } from '@/infra/db'
 import { LoadSurveyResultRepository, SaveSurveyResultRepository } from '@/data/protocols'
 import { SurveyResultModel } from '@/domain/models'
 

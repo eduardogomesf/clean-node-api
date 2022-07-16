@@ -1,4 +1,4 @@
-import { SurveyMongoRepository } from '@/infra/db/mongodb'
+import { SurveyMongoRepository } from '@/infra/db'
 import { CheckSurveyById } from '@/domain/use-cases'
 import { DbCheckSurveyById } from '@/data/use-cases'
 
