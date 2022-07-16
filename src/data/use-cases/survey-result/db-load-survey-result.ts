@@ -1,4 +1,5 @@
-import { LoadSurveyResult, LoadSurveyResultRepository, LoadSurveyByIdRepository } from './db-load-survey-result-protocols'
+import { LoadSurveyResultRepository, LoadSurveyByIdRepository } from '@/data/protocols'
+import { LoadSurveyResult } from '@/domain/use-cases'
 
 export class DbLoadSurveyResult implements LoadSurveyResult {
   constructor (

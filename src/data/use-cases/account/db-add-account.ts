@@ -1,4 +1,5 @@
-import { AddAccount, Hasher, AddAccountRepository, CheckAccountByEmailRepository } from './db-add-account-protocols'
+import { Hasher, AddAccountRepository, CheckAccountByEmailRepository } from '@/data/protocols'
+import { AddAccount } from '@/domain/use-cases'
 
 export class DbAddAccount implements AddAccount {
   constructor (

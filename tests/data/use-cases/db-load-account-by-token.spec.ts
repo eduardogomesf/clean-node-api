@@ -1,6 +1,6 @@
+import { LoadAccountByTokenRepository } from '@/data/protocols'
 import { Decrypter } from '@/data/protocols/cryptography/decrypter'
-import { DbLoadAccountByToken } from '@/data/use-cases/account/load-account-by-token/db-load-account-by-token'
-import { LoadAccountByTokenRepository } from '@/data/use-cases/account/load-account-by-token/db-load-account-by-token-protocols'
+import { DbLoadAccountByToken } from '@/data/use-cases/account/db-load-account-by-token'
 import { DecrypterSpy, LoadAccountByTokenRepositorySpy } from '@/tests/data/mocks'
 import { throwError, mockAccountModel } from '@/tests/domain/mocks'
 

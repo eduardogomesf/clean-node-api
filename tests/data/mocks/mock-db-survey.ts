@@ -1,8 +1,6 @@
-import { AddSurveyRepository } from '@/data/use-cases/survey/add-survey/db-add-survey-protocols'
-import { LoadSurveyByIdRepository } from '@/data/use-cases/survey/load-survey-by-id/db-load-survey-by-id-protocols'
 import { mockSurveyModel, mockSurveyModels } from '@/tests/domain/mocks'
-import { LoadSurveysRepository } from '@/data/use-cases/survey/load-surveys/db-load-surveys-protocols'
 import { CheckSurveyByIdRepository } from '@/data/protocols/db/survey/check-survey-by-id-repository'
+import { AddSurveyRepository, LoadSurveyByIdRepository, LoadSurveysRepository } from '@/data/protocols'
 
 export class AddSurveyRepositorySpy implements AddSurveyRepository {
   async add (data: AddSurveyRepository.Params): Promise<void> {

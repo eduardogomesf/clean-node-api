@@ -1,8 +1,8 @@
 import MockDate from 'mockdate'
 import { LoadSurveysRepositorySpy } from '@/tests/data/mocks'
 import { mockSurveyModels, throwError } from '@/tests/domain/mocks'
-import { DbLoadSurveys } from '@/data/use-cases/survey/load-surveys/db-load-surveys'
-import { LoadSurveysRepository } from '@/data/use-cases/survey/load-surveys/db-load-surveys-protocols'
+import { DbLoadSurveys } from '@/data/use-cases/survey/db-load-surveys'
+import { LoadSurveysRepository } from '@/data/protocols'
 
 type SutTypes = {
   sut: DbLoadSurveys
