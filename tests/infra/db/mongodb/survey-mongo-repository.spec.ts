@@ -1,4 +1,4 @@
-import { Collection } from 'mongodb'
+import { Collection, ObjectId } from 'mongodb'
 import { MongoHelper } from '@/infra/db/mongodb/helpers/mongo-helper'
 import { SurveyMongoRepository } from '@/infra/db/mongodb/survey/survey-mongo-repository'
 
@@ -90,6 +90,30 @@ describe('Survey Mongo Repository', () => {
       const survey = await sut.loadById(String(id))
       expect(survey).toBeTruthy()
       expect(survey.id).toBeTruthy()
+    })
+  })
+
+  describe('loadById()', () => {
+    test('Should return true if survey exists', async () => {
+      const result = await surveyCollection.insertOne({
+        question: 'any_question',
+        answers: [
+          { image: 'any_image', answer: 'any_answer' },
+          { answer: 'other_answer' }
+        ],
+        date: new Date()
+      })
+      const { insertedId: id } = result
+      const sut = makeSut()
+      const surveyExists = await sut.checkById(String(id))
+      expect(surveyExists).toBe(true)
+    })
+
+    test('Should return false if survey does not exist', async () => {
+      const sut = makeSut()
+      const objectID = new ObjectId()
+      const exists = await sut.checkById(String(objectID))
+      expect(exists).toBe(false)
     })
   })
 })
