@@ -1,8 +1,7 @@
 import { ObjectId } from 'mongodb'
-import { MongoHelper, QueryBuilder } from '@/infra/db/mongodb/helpers'
 import round from 'mongo-round'
-import { LoadSurveyResultRepository } from '@/data/protocols/db/survey-result/load-survey-result-by-id.repository'
-import { SaveSurveyResultRepository } from '@/data/protocols'
+import { MongoHelper, QueryBuilder } from '@/infra/db/mongodb/helpers'
+import { LoadSurveyResultRepository, SaveSurveyResultRepository } from '@/data/protocols'
 import { SurveyResultModel } from '@/domain/models'
 
 export class SurveyResultMongoRepository implements SaveSurveyResultRepository, LoadSurveyResultRepository {

@@ -1,7 +1,4 @@
-import { Decrypter } from '@/data/protocols/cryptography/decrypter'
-import { Encrypter } from '@/data/protocols/cryptography/encrypter'
-import { HashComparer } from '@/data/protocols/cryptography/hash-comparer'
-import { Hasher } from '@/data/protocols/cryptography/hasher'
+import { Decrypter, HashComparer, Encrypter, Hasher } from '@/data/protocols'
 
 export class HasherSpy implements Hasher {
   async hash (value: string): Promise<string> {

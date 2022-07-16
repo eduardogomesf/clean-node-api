@@ -1,9 +1,8 @@
 import { mockAuthentication, throwError } from '@/tests/domain/mocks'
 import { EncrypterSpy, HashComparerSpy, LoadAccountByEmailRepositorySpy, UpdateAccessTokenRepositorySpy } from '@/tests/data/mocks'
-import { Encrypter } from '@/data/protocols/cryptography/encrypter'
-import { HashComparer } from '@/data/protocols/cryptography/hash-comparer'
-import { DbAuthentication } from '@/data/use-cases/account/db-authentication'
-import { LoadAccountByEmailRepository, UpdateAccessTokenRepository } from '@/data/protocols'
+import { Encrypter, HashComparer, LoadAccountByEmailRepository, UpdateAccessTokenRepository } from '@/data/protocols'
+
+import { DbAuthentication } from '@/data/use-cases'
 
 type SutTypes = {
   loadAccountByEmailRepositorySpy: LoadAccountByEmailRepository

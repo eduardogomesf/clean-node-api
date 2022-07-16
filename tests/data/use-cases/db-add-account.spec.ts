@@ -1,9 +1,8 @@
 import { makeAddAccountParams, throwError } from '@/tests/domain/mocks'
 import { AddAccountRepositorySpy, CheckAccountByEmailRepositorySpy, HasherSpy } from '@/tests/data/mocks'
-import { Hasher } from '@/data/protocols/cryptography'
+import { Hasher, AddAccountRepository } from '@/data/protocols'
 import { DbAddAccount } from '@/data/use-cases'
 import { AddAccount } from '@/domain/use-cases'
-import { AddAccountRepository } from '@/data/protocols'
 
 type SutTypes = {
   sut: AddAccount

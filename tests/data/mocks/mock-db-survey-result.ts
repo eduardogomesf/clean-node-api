@@ -1,5 +1,4 @@
-import { LoadSurveyResultRepository } from '@/data/protocols/db/survey-result/load-survey-result-by-id.repository'
-import { SaveSurveyResultRepository } from '@/data/protocols/db/survey-result/save-survey-result-repository'
+import { LoadSurveyResultRepository, SaveSurveyResultRepository } from '@/data/protocols'
 import { mockSurveyResultModel } from '@/tests/domain/mocks/mock-save-result'
 
 export class SaveSurveyResultRepositorySpy implements SaveSurveyResultRepository {

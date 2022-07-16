@@ -1,7 +1,7 @@
-import { LogErrorRepository } from '@/data/protocols/db/log/log-error-repository'
+import { LogErrorRepository } from '@/data/protocols'
 import { Controller, HttpResponse } from '@/presentation/protocols'
-import { ok, serverError } from '@/presentation/helpers/http-helper'
-import { LogControllerDecorator } from '@/main/decorators/log-controller-decorator'
+import { ok, serverError } from '@/presentation/helpers'
+import { LogControllerDecorator } from '@/main/decorators'
 import { LogErrorRepositorySpy } from '@/tests/data/mocks'
 
 type SutTypes = {

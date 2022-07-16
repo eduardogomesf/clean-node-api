@@ -1,6 +1,6 @@
 import { throwError } from '@/tests/domain/mocks'
 import { LoadSurveyByIdRepositorySpy } from '@/tests/data/mocks'
-import { DbLoadAnswersBySurvey } from '@/data/use-cases/survey/db-load-survey-by-id'
+import { DbLoadAnswersBySurvey } from '@/data/use-cases'
 import { LoadSurveyByIdRepository } from '@/data/protocols'
 
 type SutTypes = {

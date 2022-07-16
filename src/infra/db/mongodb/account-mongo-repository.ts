@@ -1,8 +1,6 @@
 import { ObjectId } from 'mongodb'
-import { AddAccountRepository } from '@/data/protocols/db/account/add-account-repository'
-import { LoadAccountByTokenRepository } from '@/data/protocols/db/account/load-account-by-token-repository'
-import { MongoHelper } from '@/infra/db/mongodb/helpers/mongo-helper'
-import { CheckAccountByEmailRepository, LoadAccountByEmailRepository, UpdateAccessTokenRepository } from '@/data/protocols'
+import { AddAccountRepository, LoadAccountByTokenRepository, CheckAccountByEmailRepository, LoadAccountByEmailRepository, UpdateAccessTokenRepository } from '@/data/protocols'
+import { MongoHelper } from '@/infra/db/mongodb'
 
 export class AccountMongoRepository implements AddAccountRepository, LoadAccountByEmailRepository, UpdateAccessTokenRepository, LoadAccountByTokenRepository, CheckAccountByEmailRepository {
   async add (accountData: AddAccountRepository.Params): Promise<AddAccountRepository.Result> {
