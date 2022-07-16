@@ -1,9 +1,9 @@
 import MockDate from 'mockdate'
 import { InvalidParamError } from '@/presentation/errors'
-import { forbidden, ok } from '@/presentation/helpers/http/http-helper'
+import { forbidden, ok } from '@/presentation/helpers/http-helper'
 import { SaveSurveyResult } from '@/domain/use-cases/survey-result/save-survey-result'
 import { LoadAnsweysBySurvey } from '@/domain/use-cases/survey/load-answers-by-survey'
-import { SaveSurveyResultController } from '@/presentation/controllers/survey-result/save-survey-result/save-survey-result-controller'
+import { SaveSurveyResultController } from '@/presentation/controllers/survey-result/save-survey-result-controller'
 import { throwError, mockSurveyResultModel } from '@/tests/domain/mocks'
 import { LoadAnswersBySurveySpy, SaveSurveyResultSpy } from '@/tests/presentation/mocks'
 

@@ -1,8 +1,8 @@
 
 import MockDate from 'mockdate'
-import { badRequest, noContent, serverError } from '@/presentation/helpers/http/http-helper'
+import { badRequest, noContent, serverError } from '@/presentation/helpers/http-helper'
 import { AddSurvey } from '@/domain/use-cases/survey/add-survey'
-import { AddSurveyController } from '@/presentation/controllers/survey/add-survey/add-survey-controller'
+import { AddSurveyController } from '@/presentation/controllers/survey/add-survey-controller'
 import { Validation } from '@/presentation/protocols'
 import { throwError } from '@/tests/domain/mocks'
 import { AddSurveySpy } from '@/tests/presentation/mocks'

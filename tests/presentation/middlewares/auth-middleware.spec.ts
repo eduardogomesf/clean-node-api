@@ -1,9 +1,9 @@
-import { forbidden, ok, serverError } from '@/presentation/helpers/http/http-helper'
+import { forbidden, ok, serverError } from '@/presentation/helpers/http-helper'
 import { AccessDeniedError } from '@/presentation/errors/access-denied-error'
 import { LoadAccountByTokenSpy } from '@/tests/presentation/mocks'
 import { throwError } from '@/tests/domain/mocks'
 import { AuthMiddleware } from '@/presentation/middlewares/auth-middleware'
-import { LoadAccountByToken } from '@/presentation/middlewares/auth-middleware-protocols'
+import { LoadAccountByToken } from '@/domain/use-cases'
 
 type SutTypes = {
   sut: AuthMiddleware
