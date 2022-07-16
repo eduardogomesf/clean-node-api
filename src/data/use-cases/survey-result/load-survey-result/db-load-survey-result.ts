@@ -1,4 +1,4 @@
-import { LoadSurveyResult, LoadSurveyResultRepository, SurveyResultModel, LoadSurveyByIdRepository } from './db-load-survey-result-protocols'
+import { LoadSurveyResult, LoadSurveyResultRepository, LoadSurveyByIdRepository } from './db-load-survey-result-protocols'
 
 export class DbLoadSurveyResult implements LoadSurveyResult {
   constructor (
@@ -8,7 +8,7 @@ export class DbLoadSurveyResult implements LoadSurveyResult {
 
   }
 
-  async load (surveyId: string): Promise<SurveyResultModel> {
+  async load (surveyId: string): Promise<LoadSurveyResult.Result> {
     let surveyResult = await this.loadSurveyResultRepository.loadBySurveyId(surveyId, null)
     if (!surveyResult) {
       const survey = await this.loadSurveyByIdRepository.loadById(surveyId)
