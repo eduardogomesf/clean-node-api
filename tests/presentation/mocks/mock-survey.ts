@@ -1,4 +1,3 @@
-import { SurveyModel } from '@/domain/models/survey'
 import { mockSurveyModels } from '@/tests/domain/mocks'
 import { AddSurvey } from '@/domain/use-cases/survey/add-survey'
 import { LoadSurveys } from '@/domain/use-cases/survey/load-surveys'
@@ -24,7 +23,7 @@ export class CheckSurveyByIdSpy implements CheckSurveyById {
 }
 
 export class LoadSurveysSpy implements LoadSurveys {
-  async load (): Promise<SurveyModel[]> {
+  async load (): Promise<LoadSurveys.Result> {
     return Promise.resolve(mockSurveyModels())
   }
 }

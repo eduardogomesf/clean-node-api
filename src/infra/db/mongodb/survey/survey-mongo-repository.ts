@@ -1,5 +1,4 @@
 import { ObjectId } from 'mongodb'
-import { SurveyModel } from '@/domain/models/survey'
 import { AddSurveyRepository } from '@/data/protocols/db/mongo/survey/add-survey-repository'
 import { LoadSurveysRepository } from '@/data/use-cases/survey/load-surveys/db-load-surveys-protocols'
 import { LoadSurveyByIdRepository } from '@/data/use-cases/survey/load-survey-by-id/db-load-survey-by-id-protocols'
@@ -12,7 +11,7 @@ export class SurveyMongoRepository implements AddSurveyRepository, LoadSurveysRe
     await surveyCollection.insertOne(surveyData)
   }
 
-  async loadAll (): Promise<SurveyModel[]> {
+  async loadAll (): Promise<LoadSurveysRepository.Result> {
     const surveyCollection = await MongoHelper.getCollection('surveys')
     const surveys = await surveyCollection.find({}).toArray()
     return MongoHelper.mapCollection(surveys)
