@@ -1,5 +1,5 @@
-import { SurveyModel } from '@/domain/models/survey'
-import { AddSurvey } from '@/domain/use-cases/survey/add-survey'
+import { SurveyModel } from '@/domain/models'
+import { AddSurvey } from '@/domain/use-cases'
 
 export const mockSurveyModel = (): SurveyModel => ({
   id: 'any_survey_id',

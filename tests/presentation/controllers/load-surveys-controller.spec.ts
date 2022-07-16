@@ -1,9 +1,9 @@
 import MockDate from 'mockdate'
-import { noContent, ok, serverError } from '@/presentation/helpers/http-helper'
+import { noContent, ok, serverError } from '@/presentation/helpers'
 import { mockSurveyModels, throwError } from '@/tests/domain/mocks'
 import { LoadSurveysSpy } from '@/tests/presentation/mocks'
-import { LoadSurveys } from '@/domain/use-cases/survey/load-surveys'
-import { LoadSurveysController } from '@/presentation/controllers/survey/load-surveys-controller'
+import { LoadSurveys } from '@/domain/use-cases'
+import { LoadSurveysController } from '@/presentation/controllers'
 
 type SutTypes = {
   sut: LoadSurveysController

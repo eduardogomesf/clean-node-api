@@ -1,11 +1,10 @@
 import MockDate from 'mockdate'
 import { forbidden, ok, serverError } from '@/presentation/helpers/http-helper'
 import { InvalidParamError } from '@/presentation/errors'
-import { LoadSurveyResult } from '@/domain/use-cases/survey-result/load-survey-result'
-import { LoadSurveyResultController } from '@/presentation/controllers/survey-result/load-survey-result-controller'
+import { LoadSurveyResult, CheckSurveyById } from '@/domain/use-cases'
+import { LoadSurveyResultController } from '@/presentation/controllers'
 import { throwError, mockSurveyResultModel } from '@/tests/domain/mocks'
 import { CheckSurveyByIdSpy, LoadSurveyResultSpy } from '@/tests/presentation/mocks'
-import { CheckSurveyById } from '@/domain/use-cases/survey/check-survey-by-id'
 
 const mockRequest = (): LoadSurveyResultController.Request => ({
   surveyId: 'any_survey_id'

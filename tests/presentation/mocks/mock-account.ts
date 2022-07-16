@@ -1,6 +1,4 @@
-import { LoadAccountByToken } from '@/domain/use-cases'
-import { AddAccount } from '@/domain/use-cases/account/add-account'
-import { Authentication } from '@/domain/use-cases/account/authentication'
+import { LoadAccountByToken, AddAccount, Authentication } from '@/domain/use-cases'
 
 export class AddAccountSpy implements AddAccount {
   async add (account: AddAccount.Params): Promise<AddAccount.Result> {
