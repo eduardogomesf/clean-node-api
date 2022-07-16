@@ -1,7 +1,6 @@
 import { Controller } from '@/presentation/protocols'
-import { makeLogControllerDecorator } from '@/main/factories/decorators'
+import { makeLogControllerDecorator, makeDbSaveSurveyResult, makeDbLoadAnswersBySurvey } from '@/main/factories'
 import { SaveSurveyResultController } from '@/presentation/controllers'
-import { makeDbSaveSurveyResult, makeDbLoadAnswersBySurvey } from '@/main/factories/use-cases'
 
 export const makeSaveSurveyResultController = (): Controller => {
   const saveSurveyResultController = new SaveSurveyResultController(makeDbLoadAnswersBySurvey(), makeDbSaveSurveyResult())
