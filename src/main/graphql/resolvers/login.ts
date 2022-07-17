@@ -1,10 +1,10 @@
+import { adaptResolver } from '@/main/adapters'
+import { makeLoginController } from '@/main/factories'
+
 export default {
   Query: {
-    login () {
-      return {
-        accessToken: 'any token',
-        name: 'any name'
-      }
+    login: async (parent: any, args: any) => {
+      return adaptResolver(makeLoginController(), args)
     }
   }
 }
