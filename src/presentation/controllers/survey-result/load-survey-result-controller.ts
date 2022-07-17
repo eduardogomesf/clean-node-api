@@ -19,6 +19,7 @@ export class LoadSurveyResultController implements Controller {
       const surveyResult = await this.loadSurveyResult.load(surveyId)
       return ok(surveyResult)
     } catch (error) {
+      console.error(error)
       return serverError(error)
     }
   }

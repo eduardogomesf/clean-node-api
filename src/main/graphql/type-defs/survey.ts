@@ -9,7 +9,7 @@ export default gql`
     id: ID!
     question: String!
     answers: [SurveyAnswer!]!
-    date: String!
+    date: String
   }
 
   type SurveyAnswer {
